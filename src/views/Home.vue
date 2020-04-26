@@ -1,25 +1,29 @@
 <template>
   <div class="home">
-    <link1 to="/about"><span>sssss</span></link1>
+    <my-link v-for="(el,index) in tos" :to="el" :key="index"></my-link>
   </div>
 </template>
-
 <script>
 // @ is an alias to /src
-import link1 from "../components/link/index"
+import myLink from "../components/link/index"
 export default {
   name: 'Home',
   components: {
-    link1,
+    myLink
+  },
+  data(){
+    return {
+      tos:["/about","/1","/2"]
+    }
   }
 }
 </script>
 <style lang="stylus" scoped>
 .home
   display flex
-  justify-content center
-  flex-direction column
-  width 80%
+  justify-content space-around
+  align-items center
+  flex-direction row
+  width 100%
   height 100%
-  background-color :red
 </style>

@@ -1,9 +1,9 @@
-<template>
-  <component v-bind="handleProps()"></component>
-</template>
+<template src="./template.html"></template>
 <script>
+import mylink from "./link"
 export default {
-  name: "link",
+  mixins: [{methods: mylink}],
+  name: "my-link",
   props: {
     to: {
       type: String,
@@ -11,22 +11,12 @@ export default {
     }
   },
   methods: {
-    handleProps() {
-      if (/^(https?:|mailto:|tel:)/.test(this.to)) {
-        return {
-          is: "a",
-          href: this.to,
-          target: "_blank",
-          rel: "noopener"
-        };
-      }else{
-          return {
-              is: "router-link",
-              to: this.to
-          }
-      }
-    }
+    
+  },
+  created() {
+    console.log(mylink);
+    
   }
 };
 </script>
-<style lang="stylus" scoped></style>
+<style lang="stylus" scoped src="./link.stylus"></style>
