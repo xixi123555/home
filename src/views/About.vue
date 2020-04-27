@@ -9,7 +9,7 @@ export default {
   name: 'about',
   methods: {
     events() {
-      this.$router.push('/home')
+      this.$router.push('/')
     },
   }
 }

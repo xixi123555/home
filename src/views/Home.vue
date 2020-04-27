@@ -21,7 +21,7 @@ export default {
 <style lang="stylus" scoped>
 .home
   display flex
-  justify-content space-around
+  justify-content center
   align-items center
   flex-direction row
   width 100%
