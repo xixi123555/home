@@ -6,15 +6,24 @@ export default {
   name: "my-link",
   props: {
     to: {
-      type: String,
-      default: ""
+      type: Object,
+      default: () => {return {}}
+    }
+  },
+  data() {
+    return {
+      imgSrc1: ''
+    }
+  },
+  computed: {
+    imgSrc() {
+      return  require('../../static/'+ this.to.icon + '.png')
     }
   },
   methods: {
     
   },
   created() {
-    console.log(mylink);
     
   }
 };

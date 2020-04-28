@@ -2,10 +2,10 @@
     <component v-bind="handleProps()">
         <div class="wapre">
             <div class="link">
-                <img src="../../assets/home.png" class="imgLink">
+                <img :src="imgSrc" class="imgLink">
             </div>
             <div class="text">
-                <span>洪洪和我</span>
+                <span>{{to.title}}</span>
             </div>
         </div>
 

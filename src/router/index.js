@@ -2,35 +2,93 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
+// export const allRoute = [
+//   {
+//     path: '/',
+//     name: 'home',
+//     component: Home,
+//     children: [
+//       {
+//         path: '/about',
+//         name: 'About',
+//         component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue'),
+//         meta: {
+//           title: '照片墙',
+//           icon: 'photoWall'
+//         }
+//       },
+//       {
+//         path: '/1',
+//         name: '1',
+//         component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+//         meta: {
+//           title: '智能家',
+//           icon: 'home'
+//         }
+//       }
+//     ]
+//   },
+
+// ]
+
 Vue.use(VueRouter)
 
-  const routes = [
+// export const routes = [
+//   {
+//     path: '/',
+//     name: 'home',
+//     component: Home,
+//     children: [
+//       {
+//         path: 'about',
+//         name: 'About',
+//         component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+//         meta: {
+//           title: '照片墙',
+//           icon: 'photoWall'
+//         }
+//       },
+//       {
+//         path: '1',
+//         name: '1',
+//         component: () => import(/* webpackChunkName: "about" */ '../views/xxx.vue'),
+//         meta: {
+//           title: '智能家',
+//           icon: 'home'
+//         }
+//       }
+//     ]
+//   },
+
+
+// ]
+
+export const routes = [
   {
     path: '/',
     name: 'home',
     component: Home,
-    children: [
-      {
-        path: '/about',
-        name: 'About',
-        component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-        mate: {
-          title: '照片墙',
-          icon: 'photoWall'
-        }
-      },
-      {
-        path: '/1',
-        name: '1',
-        component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-        mate: {
-          title: '智能家',
-          icon: 'home'
-        }
-      }
-    ]
   },
-  
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import( /* webpackChunkName: "about" */ '../views/About.vue'),
+    meta: {
+      title: '照片墙',
+      icon: 'photoWall'
+    }
+  },
+  {
+    path: '/1',
+    name: '1',
+    component: () => import( /* webpackChunkName: "about" */ '../views/xxx.vue'),
+    meta: {
+      title: '智能家',
+      icon: 'home'
+    }
+  }
+
+
 ]
 
 const router = new VueRouter({
