@@ -1,5 +1,6 @@
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); //去console插件
 module.exports = {
-    /* 部署生产环境和开发环境下的URL：可对当前环境进行区分，baseUrl 从 Vue CLI 3.3 起已弃用，要使用publicPath */ 
+    /* 部署生产环境和开发环境下的URL：可对当前环境进行区分，baseUrl 从 Vue CLI 3.3 起已弃用，要使用publicPath */
     /* baseUrl: process.env.NODE_ENV === 'production' ? './' : '/' */
     publicPath: process.env.NODE_ENV === 'production' ? '/public/' : './',
     /* 输出文件目录：在npm run build时，生成文件的目录名称 */
@@ -22,13 +23,30 @@ module.exports = {
         https: false,
         hotOnly: false,
         /* 使用代理 */
-        proxy: {
-            '/api': {
-                /* 目标代理服务器地址 */
-                target: 'http://47.100.47.3/',
-                /* 允许跨域 */
-                changeOrigin: true,
-            },
-        },
+        // proxy: {
+        //     '/api': {
+        //         /* 目标代理服务器地址 */
+        //         target: 'http://47.100.47.3/',
+        //         /* 允许跨域 */
+        //         changeOrigin: true,
+        //     },
+        // },
     },
+    configureWebpack: config => {
+        // 引入注销控制台输出的插件
+        config.plugins.push(
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    compress: {
+                        warnings: false,
+                        drop_console: true, //console
+                        drop_debugger: false,
+                        pure_funcs: ['console.log'] //移除console
+                    },
+                },
+                sourceMap: false,
+                parallel: true,
+            }),
+        )
+    }
 }

@@ -1,0 +1,5 @@
+<div class="home">
+    <my-link v-for="(el,index) in childrenRoutes" :to="el" :key="index" slot="el">
+        {{el.title}}
+    </my-link>
+  </div>

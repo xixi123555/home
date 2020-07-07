@@ -8,6 +8,10 @@ export default {
     to: {
       type: Object,
       default: () => {return {}}
+    },
+    el: {
+      type: Object,
+      default: () => {return {}}
     }
   },
   data() {
@@ -19,6 +23,12 @@ export default {
     imgSrc() {
       return  require('../../static/'+ this.to.icon + '.png')
     }
+  },
+  mounted() {
+    console.log("sssse");
+    
+    console.log(this.el);
+    
   },
   methods: {
     

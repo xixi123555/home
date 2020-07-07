@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../views/home'
 
 // export const allRoute = [
 //   {
@@ -70,9 +70,9 @@ export const routes = [
     component: Home,
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import( /* webpackChunkName: "about" */ '../views/About.vue'),
+    path: '/photoWall',
+    name: 'photoWall',
+    component: () => import( /* webpackChunkName: "about" */ '../views/photoWall'),
     meta: {
       title: '照片墙',
       icon: 'photoWall'
