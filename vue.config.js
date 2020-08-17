@@ -23,14 +23,18 @@ module.exports = {
         https: false,
         hotOnly: false,
         /* 使用代理 */
-        // proxy: {
-        //     '/api': {
-        //         /* 目标代理服务器地址 */
-        //         target: 'http://47.100.47.3/',
-        //         /* 允许跨域 */
-        //         changeOrigin: true,
-        //     },
-        // },
+        proxy: {
+            '/api': {
+                /* 目标代理服务器地址 http://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sz002049&scale=5&ma=5&datalen=1023*/
+                target: 'http://money.finance.sina.com.cn/quotes_service/api/json_v2.php/',
+                /* 允许跨域 */
+                changeOrigin: true,
+                logLecel: 'debug',
+                pathRewrite:{
+                    '^/api': ''
+                }
+            },
+        },
     },
     configureWebpack: config => {
         // 引入注销控制台输出的插件
